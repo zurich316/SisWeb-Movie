@@ -12,6 +12,11 @@
 {!! Form::text('description') !!}
 </div>
 <br><br>
+<div class="form-group">
+{!! Form::label('name','Categorya:') !!}
+{!! Form::select('category',['Comedia'=>'Comedia','Drama'=>'Drama','Terror'=>'Terror']) !!}
+</div>
+<br><br>
 {!! Form::submit('Guardar') !!}
 {!! Form::close() !!}
 @if ($errors->any())

@@ -13,6 +13,7 @@
 		Usuario: {{($movie->user == null) ? 'Usuario no registrado' : $movie->user->email}}
 		<h2><a href="/movies/{{$movie->id}}">{{$movie->name}}</a></h2>
 		<p>{{$movie->description}}</p>	
+		<p>Categorya: {{$movie->category}}</p>	
 		<a href="/movies/{{$movie->id}}/edit">Editar</a>
 		{!! Form::open(array('route' => array('movies.destroy', $movie->id), 'method' => 'delete')) !!}
 		<button type="submit" class="btn btn-danger btn-mini">Borrar</button>
@@ -21,6 +22,11 @@
 		<h3>Reseñas:</h3>
 		@foreach ($movie->review as $review)
 			{{$review->content}}
+			<br>
+			<p>Likes:</p>
+			@foreach ($review->like as $like)
+				{{$like->like}}
+			@endforeach
 			<br>
 		@endforeach
 		{!! Form::open(['url'=>'review']) !!}

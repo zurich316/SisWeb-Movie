@@ -10,8 +10,9 @@
 			<br>
 		@endforeach
 
-		{!! Form::open(['url'=>'ratings']) !!}
 		<br>
+		@if (count($movies->rating)==0)
+		{!! Form::open(['url'=>'ratings']) !!}
 		{!! Form::label('name','Rating(0-10):') !!}
 		{!! Form::text('value') !!}
 		{!! Form::hidden('movie_id', $movies->id) !!}
@@ -19,6 +20,11 @@
 		<br><br>
 		{!! Form::submit('Guardar') !!}
 		{!! Form::close() !!}
+		@else
+		<p>Ya enviado</p>
+		@endif
+
+		
 		<h3>Cantidad de Ratings: {{count($movies->rating)}}</h3>
 						
 		<h3>Rating: {{(count($movies->rating)==0) ? '0' : $movies->rating->sum('value')/count($movies->rating)}}</h3>

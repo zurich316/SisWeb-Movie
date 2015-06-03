@@ -10,7 +10,7 @@ $art = new App\Article
 $art -> "title" = " Titulo viene aqui"
 $art -> "body" = " Cuerpo viene aqui"
 $art -> save();
-App\Article::all()->toArray();
+App\Review::all()->toArray();
 App\Article::find(1)
 App\Article::where(["title"=>"nuevo").get();
 
